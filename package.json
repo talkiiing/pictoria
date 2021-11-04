@@ -1,0 +1,18 @@
+{
+  "name": "pictoria",
+  "version": "1.0.0",
+  "description": "Backend for storing images (with love for Vezdekod 2021 finale ❤️)",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "author": "Vitaliy Lyovkin (roamiiing@roamiiing.ru)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.4.1"
+  }
+}
