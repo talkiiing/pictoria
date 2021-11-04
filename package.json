@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "author": "Vitaliy Lyovkin (roamiiing@roamiiing.ru)",
   "license": "ISC",
@@ -13,6 +14,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "nodemon": "^2.0.14",
     "prettier": "^2.4.1"
   }
 }

@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+
+  mariadb:
+    image: mariadb:10.2
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DB_NAME}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    networks:
+      - backend
+    restart: on-failure
+    volumes:
+      - ${PWD}/docker-data/mariadb:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    networks:
+      - backend
+    depends_on:
+      - mariadb
+    ports:
+      - '8080:80'
+    environment:
+      PMA_HOST: mariadb
+
+  api:
+    build: .
+    restart: on-failure
+    command: npm run dev
+    depends_on:
+      - mariadb
+    networks:
+      - backend
+    volumes:
+      - ./:/usr/src/app:cached
+#      - npm_cache:/root/.npm:delegated
+#      - node_modules:/usr/src/app/node_modules:delegated
+    ports:
+      - ${PORT}:${PORT}
+    environment:
+      MYSQL_DB_NAME: ${MYSQL_DB_NAME}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_HOST: mariadb
+      MYSQL_PORT: ${MYSQL_PORT}
+      PORT: ${PORT}
+
+volumes:
+  npm_cache:
+  node_modules:
+
+networks:
+  backend:
+    driver: bridge
