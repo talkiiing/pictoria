@@ -1,11 +1,17 @@
-import express from 'express'
-const app = express()
+const configureSequelizeClient = require('./db')
+const configureModels = require('./models')
+const createApp = require('./api')
+
 const { PORT = 3000 } = process.env
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+const app = createApp()
 
-app.listen(PORT, () => {
-  console.log(`Example app listening at http://localhost:${PORT}`)
-})
+configureSequelizeClient(app)
+configureModels(app)
+;(async () => {
+  await app.sequelizeClient.sync()
+
+  app.listen(PORT, () => {
+    console.log(`Your app listening at http://localhost:${PORT}`)
+  })
+})()

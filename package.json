@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Backend for storing images (with love for Vezdekod 2021 finale ❤️)",
   "main": "src/index.js",
-  "type": "module",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
@@ -11,7 +10,11 @@
   "author": "Vitaliy Lyovkin (roamiiing@roamiiing.ru)",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "multer": "^1.4.3",
+    "mysql2": "^2.3.2",
+    "sequelize": "^6.9.0",
+    "sharp": "^0.29.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.14",
