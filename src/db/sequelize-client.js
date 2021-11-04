@@ -8,6 +8,9 @@ module.exports = (app) => {
 
   app.sequelizeClient = new Sequelize(connectionString, {
     dialect: 'mysql',
+    dialectOptions: {
+      supportBigNumbers: true,
+    },
     logging: false,
     define: {
       freezeTableName: true,

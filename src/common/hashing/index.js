@@ -1,0 +1,1 @@
+exports.phash = require('./phash')

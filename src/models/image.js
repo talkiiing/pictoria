@@ -5,7 +5,19 @@ module.exports = (app) => {
 
   const Image = sequelizeClient.define('images', {
     data: {
-      type: DataTypes.BLOB,
+      type: DataTypes.BLOB('long'),
+      allowNull: false,
+    },
+    hash: {
+      type: DataTypes.BIGINT.UNSIGNED,
+      allowNull: false,
+    },
+    width: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: false,
+    },
+    height: {
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
     },
   })
