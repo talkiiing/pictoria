@@ -121,10 +121,12 @@ _Response_:
 }
 ```
 
-### _GET_ `/get/ID`
+### _GET_ `/get/ID` либо `/get/ID?scale=SCALE`
 
 _Params_:
 
 `ID`: ID, полученный из метода `/upload`
+
+`SCALE`: Необязательный параметр - фактор масштаба
 
 _Response_: `Content-Type: image/jpeg` и собственно изображение
