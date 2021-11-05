@@ -1,13 +1,14 @@
 const canvas = document.querySelector('canvas')
 const button = document.querySelector('button')
-const input = document.querySelector('input')
+const urlInput = document.querySelector('#url')
+const numberInput = document.querySelector('#number')
+const imgtag = document.querySelector('img')
 
 const c = canvas.getContext('2d')
 
-const CHECKMATE = 20
-
 button.addEventListener('click', () => {
-  const url = input.value
+  const url = urlInput.value
+  const CHECKMATE = numberInput.value
 
   const img = new Image()
   img.crossOrigin = 'anonymous'
@@ -38,6 +39,6 @@ button.addEventListener('click', () => {
       }
     }
 
-    window.location = canvas.toDataURL('image/jpeg')
+    imgtag.src = canvas.toDataURL('image/jpeg')
   }
 })

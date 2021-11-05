@@ -8,9 +8,16 @@
   <title>Squisher</title>
 </head>
 <body>
-  <canvas></canvas>
-  <input type='url'>
+  <h1>Squisher</h1>
+  <p>Заполните поле URL ссылкой на изображение (попробуйте <code>https://pictoria.s.ix3.space/get/1</code>) и выставите размер сетки. Рекомендуемые значения - от 50 до 70.</p>
+
+  <canvas style='display:none;'></canvas>
+  <input type='url' id='url' placeholder='URL'>
+  <input type='number' id='number' placeholder='Grid size'>
   <button>Submit</button>
+  <br />
+  <br />
+  <img>
   <script src='main.js'></script>
 </body>
 </html>
