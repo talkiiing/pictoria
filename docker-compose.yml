@@ -30,13 +30,10 @@ services:
   api:
     build: .
     restart: on-failure
-    command: npm run dev
     depends_on:
       - mariadb
     networks:
       - backend
-    volumes:
-      - ${PWD}/src:/usr/src/app/src
     ports:
       - ${PORT}:${PORT}
     environment:
