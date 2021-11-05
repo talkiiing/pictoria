@@ -29,8 +29,8 @@ const uploadAndGet = async (formData, label) => {
 
 ;(async () => {
   // загружаем картиночки в память
-  const names = [LITTLE_ASSET_NAME, BIG_ASSET_NAME, BIG_AND_SQUASHED_ASSET_NAME]
-  const [littleFormData, bigFormData, bigAndSquashedFormData] = names.map(
+  const names = [LITTLE_ASSET_NAME, BIG_ASSET_NAME, BIG_AND_SQUASHED_ASSET_NAME, LITTLE_ASSET_NAME]
+  const [littleFormData, bigFormData, bigAndSquashedFormData, littleFormDataAgain] = names.map(
     (name) => {
       const data = new FormData()
       data.append(
@@ -45,4 +45,5 @@ const uploadAndGet = async (formData, label) => {
   await uploadAndGet(littleFormData, 'the smallest asset')
   await uploadAndGet(bigFormData, 'bigger asset')
   await uploadAndGet(bigAndSquashedFormData, 'the biggest and squashed asset')
+  await uploadAndGet(littleFormDataAgain, 'the smallest asset again')
 })().catch((e) => console.error('Error happened', e))
